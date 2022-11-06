@@ -95,4 +95,54 @@ defineProps({ incorrectLetters: { type: Number } });
     transform: translateX(-50%) rotate(-45deg);
   }
 }
+
+@media only screen and (max-width: 768px) {
+  .container {
+    .bottom_bar {
+      left: 0px;
+      width: 100%;
+    }
+    .side_bar {
+      left: 25%;
+    }
+    .top_bar {
+      left: 25%;
+      width: 120px;
+    }
+    .head {
+      left: calc(25% + 120px);
+    }
+    .body {
+      left: calc(25% + 120px);
+    }
+    .hand {
+      position: absolute;
+      top: 125px;
+      height: 50px;
+      border: 2px solid black;
+    }
+    .hand[position="left"] {
+      left: calc(25% + 102px);
+      transform: translateX(-50%) rotate(135deg);
+    }
+    .hand[position="right"] {
+      left: calc(25% + 138px);
+      transform: translateX(-50%) rotate(45deg);
+    }
+    .foot {
+      position: absolute;
+      top: 199px;
+      height: 50px;
+      border: 2px solid black;
+    }
+    .foot[position="left"] {
+      left: calc(25% + 102px);
+      transform: translateX(-50%) rotate(45deg);
+    }
+    .foot[position="right"] {
+      left: calc(25% + 138px);
+      transform: translateX(-50%) rotate(-45deg);
+    }
+  }
+}
 </style>

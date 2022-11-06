@@ -90,11 +90,19 @@ const addWordInTile = (word) => {
   transform: translateX(-50%);
   min-width: 150px;
   padding: 7px 15px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background-color: #000;
   color: white;
   border-radius: 4px;
+  span {
+    display: block;
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .toast {
+    width: 100%;
+    max-width: 80%;
+  }
 }
 </style>
