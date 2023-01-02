@@ -1,15 +1,23 @@
 <script setup>
+import { useCssModule } from "vue";
 defineProps({ incorrectLetters: { type: Number } });
+
+const styles = useCssModule("styles");
+let hangMan = [
+  `<div  class=${styles.head} />`,
+  `<div class=${styles.body}></div>`,
+  `<div class=${styles.hand} position='left'></div>`,
+  `<div class=${styles.hand} position='right'></div>`,
+  `<div class=${styles.foot} position='left'></div>`,
+  `<div class=${styles.foot} position='right'></div>`,
+];
 </script>
 
 <template>
   <div :class="styles.container">
-    <div v-if="incorrectLetters >= 1" :class="styles.head" />
-    <div v-if="incorrectLetters >= 2" :class="styles.body" />
-    <div v-if="incorrectLetters >= 3" :class="styles.hand" position="left" />
-    <div v-if="incorrectLetters >= 4" :class="styles.hand" position="right" />
-    <div v-if="incorrectLetters >= 5" :class="styles.foot" position="left" />
-    <div v-if="incorrectLetters >= 6" :class="styles.foot" position="right" />
+    <template v-for="n in incorrectLetters" :key="n">
+      <div v-html="hangMan[n - 1]"></div>
+    </template>
     <div :class="styles.bottom_bar"></div>
     <div :class="styles.side_bar"></div>
     <div :class="styles.top_bar"></div>
